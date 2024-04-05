@@ -1,25 +1,106 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import { useNavigate } from "react-router-dom";
+import VerifyEmail from "./pages/VerifyEmail";
+import Default from "./pages/Default";
+import { useSelector } from "react-redux";
+import MyProfile from "./components/MyProfile";
+import Class from "./pages/Class";
+import ClassList from "./pages/ClassList";
+import ClassDetails from "./pages/ClassDetails";
+import Login from "./pages/Login";
+import OpenRoute from "./components/OpenRoute";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
+import About from "./pages/About";
 
-function App() {
+const App = () => {
+  const token = localStorage.getItem("token") || "";
+  const { user } = useSelector((state) => state.profile);
+
+  // const token = useSelector((store) => store.auth.token);
+
+  // const navigate = useNavigate();
+
+  // React.useLayoutEffect(() => {
+  //   if (!token) {
+  //     navigate("/", { replace: true });
+  //   }
+  // }, [token]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="max-w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="signup"
+          element={
+            <OpenRoute>
+              <Signup />
+            </OpenRoute>
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <OpenRoute>
+              <Login />
+            </OpenRoute>
+          }
+        />
+
+        <Route
+          path="dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="dashboard/my-profile"
+          element={
+            <PrivateRoute>
+              <MyProfile />
+            </PrivateRoute>
+          }
+        />
+
+        <Route path="/verify-email" element={<VerifyEmail />} />
+
+        <Route path="/home" element={<Default />} />
+        <Route
+          path="/create-class"
+          element={
+            <PrivateRoute>
+              <Class />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/myclass"
+          element={
+            <PrivateRoute>
+              <ClassList />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/class-details/:id"
+          element={
+            <PrivateRoute>
+              <ClassDetails />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
