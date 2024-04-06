@@ -124,3 +124,4 @@ export function login(email, password, navigate) {
     toast.dismiss(toastId);
   };
 }
+

@@ -19,6 +19,7 @@ import About from "./pages/About";
 import VideoHome from "./VideoCall/VideoHome";
 import VideoPage from "./VideoCall/VideoPage";
 import { BrowserRouter as Router } from "react-router-dom";
+import Stats from "./components/Stats";
 
 const App = () => {
   const token = localStorage.getItem("token") || "";
@@ -58,22 +59,16 @@ const App = () => {
         />
 
         <Route
-          path="dashboard"
+          path="/dashboard"
           element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
           }
-        />
-
-        <Route
-          path="dashboard/my-profile"
-          element={
-            <PrivateRoute>
-              <MyProfile />
-            </PrivateRoute>
-          }
-        />
+        >
+          <Route path="my-profile" element={<MyProfile />} />
+          <Route path="stats" element={<Stats />} />
+        </Route>
 
         <Route path="/verify-email" element={<VerifyEmail />} />
 
