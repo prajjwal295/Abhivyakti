@@ -10,7 +10,7 @@ const VideoHome = () => {
   }, [navigate, value]);
 
   return (
-    <div>
+    <div className="">
       <h1 style={{ color: "red" }}>For testing Purpose use room code 12!</h1>
 
       <input

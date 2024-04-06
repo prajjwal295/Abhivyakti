@@ -47,15 +47,15 @@ const NavBar = () => {
         <div className="flex gap-6 ">
           <div
             className={`${
-              matchRoute("/home") ? "text-yellow-25" : "text-richblack-50"
+              matchRoute("/") ? "text-yellow-25" : "text-richblack-50"
             }`}
           >
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
           </div>
 
           <div
             className={`${
-              matchRoute("/about") ? "text-yellow-25" : "text-richblack-50"
+              matchRoute("/myclass") ? "text-yellow-25" : "text-richblack-50"
             }`}
           >
             <Link to="/myclass">Class</Link>

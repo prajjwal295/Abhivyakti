@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CodeBlock from "../components/CodeBlock";
-import logo from "../assets/home.jpeg";
+import logo from "../assets/Screenshot 2024-04-06 195128.png";
 
 const Home = () => {
   return (

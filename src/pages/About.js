@@ -2,7 +2,7 @@ import React from "react";
 import Instructor from "../assets/Images/Instructor.png";
 import { FaArrowRight } from "react-icons/fa";
 import CodeBlock from "../components/CodeBlock";
-import logo from "../assets/about.jpeg";
+import logo from "../assets/about.jpg";
 
 const About = () => {
   return (
