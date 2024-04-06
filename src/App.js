@@ -16,6 +16,9 @@ import OpenRoute from "./components/OpenRoute";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import About from "./pages/About";
+import VideoHome from "./VideoCall/VideoHome";
+import VideoPage from "./VideoCall/VideoPage";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const App = () => {
   const token = localStorage.getItem("token") || "";
@@ -33,6 +36,7 @@ const App = () => {
   return (
     <div className="max-w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
       <NavBar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -95,6 +99,22 @@ const App = () => {
           element={
             <PrivateRoute>
               <ClassDetails />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/class-details/:id/join-meet"
+          element={
+            <PrivateRoute>
+              <VideoHome />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/class-details/:id/start-meet"
+          element={
+            <PrivateRoute>
+              <VideoPage />
             </PrivateRoute>
           }
         />

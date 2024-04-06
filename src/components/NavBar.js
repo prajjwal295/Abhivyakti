@@ -4,8 +4,9 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import { matchPath } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import logo from "../assets/logos.png";
+import logo from "../assets/Abhivyakti_logo-removebg-preview.png";
 import CTAbutton from "./CTAButton";
+import ProfileDropDown from "./ProfileDropDown";
 
 const NavBar = () => {
   const token = useSelector((state) => state?.auth?.token);
@@ -27,7 +28,7 @@ const NavBar = () => {
 
   return (
     <div
-      className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
+      className={`px-10 flex h-14 items-center justify-between border-b-[1px] border-b-richblack-700 ${
         location.pathname !== "/" ? "bg-richblack-800" : ""
       } transition-all duration-200`}
     >
@@ -36,7 +37,7 @@ const NavBar = () => {
           <img
             src={logo}
             alt="logo"
-            className=" border-white w-[30%]"
+            className=" border-white w-[90%]"
             loading="lazy"
           />
         </Link>
@@ -69,37 +70,30 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div className="flex gap-2 ">
-        {!token && (
-          <CTAbutton active={false} linkTo={"/login"}>
-            Login
-          </CTAbutton>
-        )}
-        {!token && (
-          <CTAbutton active={false} linkTo={"/signup"}>
-            Sign in
-          </CTAbutton>
-        )}
-
-        {token && (
-          <CTAbutton linkTo={"/cart"} active={false}>
-            Cart
-          </CTAbutton>
-        )}
-
-        {/* {token && (
-            <button
-              className="text-center text-[13px] px-6 py-3 rounded-md font-bold transition-all duration-200 hover:scale-95 bg-richblack-800 text-white"
-              onClick={() => {
-                dispatch(logOut(navigate));
-              }}
-            >
-              LogOut
+      <div className="hidden items-center gap-x-4 md:flex">
+        {token === null && (
+          <Link to="/login">
+            <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+              Log in
             </button>
-          )} */}
+          </Link>
+        )}
+        {token === null && (
+          <Link to="/signup">
+            <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+              Sign up
+            </button>
+          </Link>
+        )}
+        {token && (
+          <div className="text-white">
+            <ProfileDropDown />
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default NavBar;
+

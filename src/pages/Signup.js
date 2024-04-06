@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { setSignupData } from "../utils/authSlice";
 import { useDispatch } from "react-redux";
 import { sendOtp } from "../services/authApi";
+import logo from "../assets/Images/signup.webp";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -58,18 +59,19 @@ const Signup = () => {
   return (
     <div>
       <div className="relative mx-auto flex flex-col w-11/12 items-center max-w-maxContent text-white justify-between">
-        <div className="flex flex-row justify-between my-20  w-full">
+        <div className="flex flex-row justify-between my-20  w-full items-center">
           <div className="flex flex-col gap-4 max-w-[450px]">
             <h1 className="text-richblack-5 font-bold text-3xl">
-              Join the millions learning to code with StudyNotion for free
+              Sign Up
             </h1>
             <p className="mt-4 text-[1.125rem] leading-[1.625rem]">
               <span className="text-richblack-100">
                 {" "}
-                Build Build skills for today, tomorrow, and beyond.{" "}
+                Transforming Education with Cutting-Edge Attention Monitoring
+                Technology!.{" "}
               </span>{" "}
               <span className="font-edu-sa font-bold italic text-blue-100">
-                Education to future-proof your career.
+                Sign Up Now.
               </span>
             </p>
 
@@ -194,7 +196,7 @@ const Signup = () => {
             </form>
           </div>
           <div className="relative border-2 shadow-[12px_12px_0_0] shadow-richblack-5 w-11/12 max-w-[450px] max-h-[420px]">
-            {/* <img src={signup} className="h-full"></img> */}
+            <img src={logo} className="h-full"></img>
           </div>
         </div>
       </div>

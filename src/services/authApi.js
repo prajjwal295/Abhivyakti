@@ -114,6 +114,7 @@ export function login(email, password, navigate) {
 
       toast.success("Login Successfull");
       dispatch(setToken(response.data.token));
+      dispatch(setUser(response.data.user));
       navigate("/dashboard/my-profile");
     } catch (error) {
       console.log("LOGIN API ERROR............", error);

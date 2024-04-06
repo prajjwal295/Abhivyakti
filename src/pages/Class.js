@@ -4,7 +4,7 @@ import { endpoints } from "../services/apis";
 import { apiConnector } from "../services/apiconnector";
 import { useSelector } from "react-redux";
 
-const Class = () => {
+const Class = ({ setShowCreate }) => {
   const token = useSelector((store) => store.auth.token);
   const [name, setName] = useState("");
   const [des, setDes] = useState("");
@@ -40,24 +40,8 @@ const Class = () => {
 
   return (
     <div>
-      <div className="bg-white p-4">Create New class ++</div>
-
       <form onSubmit={handleOnSubmit} className="flex flex-col  my-6 gap-3 ">
         <div className="flex gap-5">
-          <div className=" flex flex-col gap-2 relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-              Enter Class Description <sup className="text-pink-200">*</sup>
-            </p>
-            <input
-              type="text"
-              value={des}
-              className=" bg-richblack-800 p-3 rounded-md cursor-text border-b-[1px] text-richblack-200"
-              placeholder="First Name"
-              onChange={(e) => {
-                setDes(e.target.value);
-              }}
-            />
-          </div>
           <div className=" flex flex-col gap-2 relative">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
               Enter Class Name <sup className="text-pink-200">*</sup>
@@ -66,9 +50,23 @@ const Class = () => {
               type="text"
               value={name}
               className=" bg-richblack-800 p-3 rounded-md cursor-text border-b-[1px] text-richblack-200"
-              placeholder="First Name"
+              placeholder="Enter Class Name"
               onChange={(e) => {
                 setName(e.target.value);
+              }}
+            />
+          </div>
+          <div className=" flex flex-col gap-2 relative">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+              Enter Class Description <sup className="text-pink-200">*</sup>
+            </p>
+            <input
+              type="text"
+              value={des}
+              className=" bg-richblack-800 p-3 rounded-md cursor-text border-b-[1px] text-richblack-200"
+              placeholder="Enter Class Description"
+              onChange={(e) => {
+                setDes(e.target.value);
               }}
             />
           </div>
@@ -76,6 +74,9 @@ const Class = () => {
         <button
           type="submit"
           className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+        //   onClick={() => {
+        //     setShowCreate(false);
+        //   }}
         >
           Create
         </button>

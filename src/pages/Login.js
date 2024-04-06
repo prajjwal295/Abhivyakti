@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../services/authApi";
 import { useDispatch } from "react-redux";
+import logo from "../assets/Images/login.webp";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -71,12 +72,6 @@ const Login = () => {
                     setUser({ ...user, password: e.target.value });
                   }}
                 />
-                <Link
-                  to="/forgot-password"
-                  className="absolute bottom-0 translate-x-2 translate-y-6 right-5 text-xs text-blue-50"
-                >
-                  Forgot Password
-                </Link>
               </div>
               <button
                 type="submit"
@@ -86,8 +81,8 @@ const Login = () => {
               </button>
             </form>
           </div>
-          <div className="relative border-2 shadow-[12px_12px_0_0] shadow-richblack-5 w-11/12 max-w-[450px]">
-            {/* <img src={loginpic} className="h-full"></img> */}
+          <div className="relative border-2 shadow-[12px_12px_0_0] shadow-richblack-5 w-11/12 max-w-[450px] max-h-[420px]">
+            <img src={logo} className="h-full"></img>
           </div>
         </div>
       </div>
