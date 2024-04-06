@@ -33,7 +33,7 @@ app.use(fileUpload({ useTempFiles: true, tempFileDir: "/tmp" }));
 
 cloudinaryConnect();
 
-// routes
+// routeser
 
 app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/class", classRoutes);
