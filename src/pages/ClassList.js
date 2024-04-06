@@ -46,8 +46,7 @@ const ClassList = () => {
                     {item?.className}
                   </h5>
                   <p className="mb-6 text-lg text-gray-600">
-                    by {item?.instructor?.firstName}{" "}
-                    {item?.instructor?.lastName}
+                    by happy singh
                   </p>
                 </div>
               </div>
