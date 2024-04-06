@@ -3,12 +3,11 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 // import { formattedDate } from "../../../utils/dateFormatter";
-// import IconBtn from "../../common/IconBtn";
+import IconBtn from "./IconBtn";
 
 export default function MyProfile() {
-  const user = useSelector((state) => state.profile.user);
+  const { user } = useSelector((state) => state.profile);
   const navigate = useNavigate();
-  console.log({ user });
 
   return (
     <>
@@ -29,26 +28,26 @@ export default function MyProfile() {
             <p className="text-sm text-richblack-300">{user?.email}</p>
           </div>
         </div>
-        {/* <IconBtn
+        <IconBtn
           text="Edit"
           onclick={() => {
             navigate("/dashboard/settings");
           }}
         >
           <RiEditBoxLine />
-        </IconBtn> */}
+        </IconBtn>
       </div>
       <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold text-richblack-5">About</p>
-          {/* <IconBtn
+          <IconBtn
             text="Edit"
             onclick={() => {
               navigate("/dashboard/settings");
             }}
           >
             <RiEditBoxLine />
-          </IconBtn> */}
+          </IconBtn>
         </div>
         <p
           className={`${
@@ -65,14 +64,14 @@ export default function MyProfile() {
           <p className="text-lg font-semibold text-richblack-5">
             Personal Details
           </p>
-          {/* <IconBtn
+          <IconBtn
             text="Edit"
             onclick={() => {
               navigate("/dashboard/settings");
             }}
           >
             <RiEditBoxLine />
-          </IconBtn> */}
+          </IconBtn>
         </div>
         <div className="flex max-w-[500px] justify-between">
           <div className="flex flex-col gap-y-5">
@@ -110,10 +109,10 @@ export default function MyProfile() {
             </div>
             <div>
               <p className="mb-2 text-sm text-richblack-600">Date Of Birth</p>
-              {/* <p className="text-sm font-medium text-richblack-5">
-                {formattedDate(user?.additionalDetails?.dateOfBirth) ??
-                  "Add Date Of Birth"}
-              </p> */}
+              <p className="text-sm font-medium text-richblack-5">
+                {/* {formattedDate(user?.additionalDetails?.dateOfBirth) ??
+                  "Add Date Of Birth"} */}
+              </p>
             </div>
           </div>
         </div>
