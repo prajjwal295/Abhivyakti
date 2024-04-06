@@ -24,5 +24,8 @@
     "otp-generator": "^4.0.1",
     "remotely": "^3.0.0"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "description": ""
 }
