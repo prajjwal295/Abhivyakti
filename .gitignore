@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/Backend/ML_Model/facialemotionmodel.h5
+/Backend/ML_Model/facialemotionmodel.json
+/Backend/ML_Model/images
 
 # testing
 /coverage
